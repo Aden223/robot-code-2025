@@ -1,12 +1,12 @@
 // Builds the Complete Robotics fundraising PDFs from HTML.
 // Usage: node build.js            (from this folder)
-//        PHOTO=../photos/robot.jpg node build.js   (adds a robot photo to the packet)
+// Photos live in ../photos (robot_on_field, printed_shooter, printed_gears, cardboard_prototype).
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
 
 const OUT = path.resolve(__dirname, '..');
-const PHOTO = process.env.PHOTO ? path.resolve(process.env.PHOTO) : null;
+const PHOTOS = path.resolve(__dirname, '..', 'photos');
 
 const CONTACT = {
   name: 'Sarah Rice',
@@ -27,7 +27,7 @@ html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; }
 .page { width: 8.5in; height: 11in; padding: 0.6in 0.7in; position: relative; overflow: hidden; page-break-after: always; }
 .page:last-child { page-break-after: auto; }
-h1 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 700; font-size: 34pt; line-height: 1.05; letter-spacing: -0.02em; }
+h1 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 700; font-size: 30pt; line-height: 1.05; letter-spacing: -0.02em; }
 h2 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 650; font-size: 15pt; letter-spacing: -0.01em; margin-bottom: 8px; }
 h3 { font-weight: 650; font-size: 11pt; margin-bottom: 4px; }
 p { margin-bottom: 9px; }
@@ -35,7 +35,7 @@ p { margin-bottom: 9px; }
 .small { font-size: 9pt; }
 
 /* brand bar */
-.brand { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+.brand { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
 .mark { display: flex; align-items: center; gap: 10px; }
 .chip { background: var(--g700); color: #fff; font-weight: 700; font-size: 9pt; padding: 5px 9px; border-radius: 8px; letter-spacing: 0.02em; }
 .mark b { font-size: 12pt; font-weight: 700; }
@@ -49,13 +49,22 @@ p { margin-bottom: 9px; }
 .stat b { display: block; font-family: 'Inter Display', Inter; font-size: 19pt; font-weight: 700; color: var(--g700); line-height: 1.1; margin-bottom: 4px; }
 .stat span { font-size: 8.5pt; color: var(--muted); line-height: 1.35; display: block; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-.photo { width: 100%; height: 2.6in; object-fit: cover; border-radius: 16px; margin-bottom: 18px; display: block; }
+.hero { display: grid; grid-template-columns: 1fr 2.75in; gap: 20px; margin: 10px 0 16px; align-items: start; }
+.hero .lead { margin: 0 0 14px; font-size: 11pt; }
+.hero .stats { grid-template-columns: 1fr 1fr; margin: 0; gap: 8px; }
+.hero .stat { padding: 9px 11px; }
+.hero .stat b { font-size: 16pt; }
+figure img { width: 100%; display: block; border-radius: 14px; object-fit: cover; }
+figcaption { font-size: 8pt; color: var(--muted); margin-top: 5px; }
+.hero figure img { height: 2.75in; object-position: center; }
+.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 4px 0 16px; }
+.strip img { height: 1.3in; }
 .budget { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.budget div { display: flex; justify-content: space-between; padding: 7px 12px; border-bottom: 1px solid var(--line); font-size: 9.5pt; }
+.budget div { display: flex; justify-content: space-between; padding: 4px 12px; border-bottom: 1px solid var(--line); font-size: 9.5pt; }
 .budget div:last-child { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
 .budget div span:last-child { font-variant-numeric: tabular-nums; }
 
-.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 26px; }
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 18px; }
 .tier { border-radius: 18px; padding: 16px 16px 18px; border: 1px solid var(--g200); background: #fff; }
 .tier.t1 { background: var(--g900); color: #fff; border-color: var(--g900); }
 .tier.t2 { background: var(--g100); }
@@ -66,7 +75,7 @@ p { margin-bottom: 9px; }
 .tier li { position: relative; padding-left: 18px; margin-bottom: 6px; font-size: 9.5pt; line-height: 1.35; }
 .tier li::before { content: ''; position: absolute; left: 0; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--g500); }
 .tier.t1 li::before { background: #8fd6aa; }
-.help { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.help { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
 .help > div { background: var(--g50); border-radius: 14px; padding: 13px 14px; }
 .help p { font-size: 9pt; color: var(--muted); margin: 0; }
 .give { border-radius: 18px; background: var(--g100); padding: 18px 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
@@ -102,11 +111,11 @@ const foot = `<div class="foot"><span>${PAYEE} is a 501(c)(3) nonprofit. Gifts a
 
 const BUDGET = [
   ['CNC router, enclosure and tooling', 6500],
-  ['Robot parts: motors, controllers, electronics', 8000],
+  ['Motors, controllers and electronics', 8000],
   ['Aluminum, polycarbonate and filament', 3000],
   ['FIRST registration and district events', 6000],
   ['State Championship', 1500],
-  ['Worlds fund: registration and travel deposit', 5000],
+  ['Worlds fund', 5000],
   ['Safety gear, tools and outreach', 1000],
 ];
 const total = BUDGET.reduce((a, [, v]) => a + v, 0);
@@ -114,40 +123,45 @@ const $ = (n) => '$' + n.toLocaleString('en-US');
 
 // ---------------- packet ----------------
 function packet() {
-  const photo = PHOTO ? `<img class="photo" src="file://${PHOTO}">` : '';
+  const img = (f) => `file://${PHOTOS}/${f}`;
   return `
 <section class="page">
   ${brand('2026–27 Sponsorship')}
-  <h1>Sponsor a Frankenmuth<br>robotics team.</h1>
-  <p class="lead">We're Complete Robotics, a high school FIRST Robotics Competition team in our second season. As rookies, our robot made it to the Michigan State Championship. This year we're building to qualify for the FIRST Championship in Houston, and local sponsors are how we get there.</p>
-  <div class="stats">
-    <div class="stat"><b>States</b><span>Qualified for the FIRST in Michigan State Championship in our rookie year</span></div>
-    <div class="stat"><b>6th</b><span>Seed after qualifications at <span style="white-space:nowrap">FIM District Fenton, 9–3</span></span></div>
-    <div class="stat"><b>Captain</b><span>Led our own playoff alliance at Fenton</span></div>
-    <div class="stat"><b>22–21</b><span>Official match record across the 2026 season</span></div>
+  <h1>Sponsor Complete Robotics</h1>
+  <div class="hero">
+    <div>
+      <p class="lead">We're a high school FIRST Robotics Competition team from Frankenmuth, now in our second season. As rookies, our robot made it to the Michigan State Championship. This year we're building to qualify for the FIRST Championship in Houston, and local sponsors are how we get there.</p>
+      <div class="stats">
+        <div class="stat"><b>States</b><span>Qualified for the State Championship in our rookie year</span></div>
+        <div class="stat"><b>6th</b><span>Seed at our Fenton district event after going 9–3</span></div>
+        <div class="stat"><b>Captain</b><span>Led our own playoff alliance at Fenton</span></div>
+        <div class="stat"><b>22–21</b><span>Official match record across the 2026 season</span></div>
+      </div>
+    </div>
+    <figure><img src="${img('robot_on_field.jpg')}"><figcaption>Team 10978 on the field, 2026 season</figcaption></figure>
   </div>
-  ${photo}
+  <h2>Built on a 3D printer</h2>
+  <p class="muted" style="max-width:6.8in">Students design every part in CAD and write all the code in Java. With no machine shop, every custom part was printed in plastic. A CNC router lets them cut parts like these from aluminum.</p>
+  <div class="strip">
+    <figure><img src="${img('printed_shooter.jpg')}"><figcaption>Printed shooter assembly</figcaption></figure>
+    <figure><img src="${img('printed_gears.jpg')}"><figcaption>Printed gears on a Kraken X44 motor</figcaption></figure>
+    <figure><img src="${img('cardboard_prototype.jpg')}"><figcaption>Early prototype with a cardboard hopper</figcaption></figure>
+  </div>
   <div class="two">
     <div>
-      <h2>How we build</h2>
-      <p>Students design every part of the robot in CAD and write all of the code in Java. Mentors advise; students do the work.</p>
-      <p>Last season we had no machine shop, so every custom part was 3D-printed. The robot ran a swerve drivetrain, where each wheel steers on its own, driven by Kraken brushless motors.</p>
-      <h2 style="margin-top:14px">What's next</h2>
-      <p>A CNC router is the biggest upgrade we can make. It lets students cut aluminum and polycarbonate parts that are stronger and more precise than printed plastic. It also teaches the same design-to-machine process used in shops across Saginaw County.</p>
-    </div>
-    <div>
       <h2>Where the money goes</h2>
-      <div class="budget">
-        ${BUDGET.map(([k, v]) => `<div><span>${k}</span><span>${$(v)}</span></div>`).join('')}
-        <div><span>Season goal</span><span>${$(total)}</span></div>
-      </div>
-      <p class="small muted" style="margin-top:8px">If we qualify for Worlds, we'll run a separate drive to cover travel to Houston for the whole team.</p>
+      <p>The CNC router is the biggest single item. Parts are the biggest category: motors and electronics wear out over a season, and a Worlds-level robot needs spares.</p>
+      <p class="small muted">The Worlds fund covers registration and a travel deposit. If we qualify, we'll run a separate drive to get the whole team to Houston.</p>
+    </div>
+    <div class="budget">
+      ${BUDGET.map(([k, v]) => `<div><span>${k}</span><span>${$(v)}</span></div>`).join('')}
+      <div><span>Season goal</span><span>${$(total)}</span></div>
     </div>
   </div>
 </section>
 <section class="page">
   ${brand('2026–27 Sponsorship')}
-  <h2 style="font-size:22pt">Sponsorship tiers</h2>
+  <h2>Sponsorship tiers</h2>
   <p class="muted" style="max-width:6in">Every sponsor is recognized all season, from kickoff in January through our last event in the spring.</p>
   <div class="tiers">
     <div class="tier t1"><div class="name">Tier One</div><div class="pill">$1,500+</div><ul>

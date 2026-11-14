@@ -9,7 +9,7 @@ html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; }
 .page { width: 8.5in; height: 11in; padding: 0.6in 0.7in; position: relative; overflow: hidden; page-break-after: always; }
 .page:last-child { page-break-after: auto; }
-h1 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 700; font-size: 34pt; line-height: 1.05; letter-spacing: -0.02em; }
+h1 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 700; font-size: 30pt; line-height: 1.05; letter-spacing: -0.02em; }
 h2 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 650; font-size: 15pt; letter-spacing: -0.01em; margin-bottom: 8px; }
 h3 { font-weight: 650; font-size: 11pt; margin-bottom: 4px; }
 p { margin-bottom: 9px; }
@@ -17,7 +17,7 @@ p { margin-bottom: 9px; }
 .small { font-size: 9pt; }
 
 /* brand bar */
-.brand { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+.brand { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
 .mark { display: flex; align-items: center; gap: 10px; }
 .chip { background: var(--g700); color: #fff; font-weight: 700; font-size: 9pt; padding: 5px 9px; border-radius: 8px; letter-spacing: 0.02em; }
 .mark b { font-size: 12pt; font-weight: 700; }
@@ -31,13 +31,22 @@ p { margin-bottom: 9px; }
 .stat b { display: block; font-family: 'Inter Display', Inter; font-size: 19pt; font-weight: 700; color: var(--g700); line-height: 1.1; margin-bottom: 4px; }
 .stat span { font-size: 8.5pt; color: var(--muted); line-height: 1.35; display: block; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-.photo { width: 100%; height: 2.6in; object-fit: cover; border-radius: 16px; margin-bottom: 18px; display: block; }
+.hero { display: grid; grid-template-columns: 1fr 2.75in; gap: 20px; margin: 10px 0 16px; align-items: start; }
+.hero .lead { margin: 0 0 14px; font-size: 11pt; }
+.hero .stats { grid-template-columns: 1fr 1fr; margin: 0; gap: 8px; }
+.hero .stat { padding: 9px 11px; }
+.hero .stat b { font-size: 16pt; }
+figure img { width: 100%; display: block; border-radius: 14px; object-fit: cover; }
+figcaption { font-size: 8pt; color: var(--muted); margin-top: 5px; }
+.hero figure img { height: 2.75in; object-position: center; }
+.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 4px 0 16px; }
+.strip img { height: 1.3in; }
 .budget { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.budget div { display: flex; justify-content: space-between; padding: 7px 12px; border-bottom: 1px solid var(--line); font-size: 9.5pt; }
+.budget div { display: flex; justify-content: space-between; padding: 4px 12px; border-bottom: 1px solid var(--line); font-size: 9.5pt; }
 .budget div:last-child { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
 .budget div span:last-child { font-variant-numeric: tabular-nums; }
 
-.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 26px; }
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 18px; }
 .tier { border-radius: 18px; padding: 16px 16px 18px; border: 1px solid var(--g200); background: #fff; }
 .tier.t1 { background: var(--g900); color: #fff; border-color: var(--g900); }
 .tier.t2 { background: var(--g100); }
@@ -48,7 +57,7 @@ p { margin-bottom: 9px; }
 .tier li { position: relative; padding-left: 18px; margin-bottom: 6px; font-size: 9.5pt; line-height: 1.35; }
 .tier li::before { content: ''; position: absolute; left: 0; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--g500); }
 .tier.t1 li::before { background: #8fd6aa; }
-.help { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.help { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
 .help > div { background: var(--g50); border-radius: 14px; padding: 13px 14px; }
 .help p { font-size: 9pt; color: var(--muted); margin: 0; }
 .give { border-radius: 18px; background: var(--g100); padding: 18px 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
