@@ -1,172 +1,137 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Grant Letters</title><style>
+<!doctype html><html><head><meta charset="utf-8"><title>Complete Robotics Grant Letters</title><style>
 @page { size: Letter; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --ink: #16201a; --muted: #56635b; --line: #dfe7e1;
-  --g900: #12422a; --g700: #1d6b3f; --g500: #2f9a5c; --g200: #cfe9d8; --g100: #e9f5ee; --g50: #f5faf7;
-}
+:root { --ink:#1b211d; --muted:#5b665f; --line:#d9e1dc; --green:#1f6b42; --dark:#15462c; --tint:#eef6f1; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; }
-.page { width: 8.5in; height: 11in; padding: 0.6in 0.7in; position: relative; overflow: hidden; page-break-after: always; }
+body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.55; }
+.page { width: 8.5in; height: 11in; padding: 0.65in 0.75in 0.8in; position: relative; overflow: hidden; page-break-after: always; }
 .page:last-child { page-break-after: auto; }
-h1 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 700; font-size: 30pt; line-height: 1.05; letter-spacing: -0.02em; }
-h2 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 650; font-size: 15pt; letter-spacing: -0.01em; margin-bottom: 8px; }
-h3 { font-weight: 650; font-size: 11pt; margin-bottom: 4px; }
+h1 { font-family: 'Inter Display', Inter; font-weight: 700; font-size: 32pt; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-family: 'Inter Display', Inter; font-weight: 650; font-size: 13.5pt; color: var(--green); margin: 0 0 6px; }
+h3 { font-size: 10.5pt; font-weight: 650; margin-bottom: 3px; }
 p { margin-bottom: 9px; }
 .muted { color: var(--muted); }
 .small { font-size: 9pt; }
+.rule { border-top: 1px solid var(--line); margin: 16px 0; }
 
-/* brand bar */
-.brand { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
-.mark { display: flex; align-items: center; gap: 10px; }
-.chip { background: var(--g700); color: #fff; font-weight: 700; font-size: 9pt; padding: 5px 9px; border-radius: 8px; letter-spacing: 0.02em; }
-.mark b { font-size: 12pt; font-weight: 700; }
-.mark span { display: block; font-size: 8.5pt; color: var(--muted); }
-.brand .right { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+.top { display: flex; justify-content: space-between; align-items: baseline; font-size: 8.5pt; color: var(--muted);
+  border-bottom: 2px solid var(--green); padding-bottom: 8px; margin-bottom: 22px; }
+.top b { color: var(--ink); font-size: 10pt; }
+.sub { font-size: 12pt; color: var(--muted); margin: 6px 0 18px; }
+.cover { width: 100%; height: 2.8in; object-fit: cover; object-position: center 64%; border-radius: 10px; display: block; }
+.cap { font-size: 8pt; color: var(--muted); margin: 5px 0 18px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+ul.list { list-style: none; margin: 2px 0 10px; }
+ul.list li { position: relative; padding-left: 15px; margin-bottom: 4px; }
+ul.list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
-/* packet */
-.lead { font-size: 12pt; color: #2b3830; max-width: 6.3in; margin: 12px 0 22px; }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
-.stat { background: var(--g50); border: 1px solid var(--g200); border-radius: 14px; padding: 12px 12px 11px; }
-.stat b { display: block; font-family: 'Inter Display', Inter; font-size: 19pt; font-weight: 700; color: var(--g700); line-height: 1.1; margin-bottom: 4px; }
-.stat span { font-size: 8.5pt; color: var(--muted); line-height: 1.35; display: block; }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-.hero { display: grid; grid-template-columns: 1fr 2.75in; gap: 20px; margin: 10px 0 16px; align-items: start; }
-.hero .lead { margin: 0 0 14px; font-size: 11pt; }
-.hero .stats { grid-template-columns: 1fr 1fr; margin: 0; gap: 8px; }
-.hero .stat { padding: 9px 11px; }
-.hero .stat b { font-size: 16pt; }
-figure img { width: 100%; display: block; border-radius: 14px; object-fit: cover; }
-figcaption { font-size: 8pt; color: var(--muted); margin-top: 5px; }
-.hero figure img { height: 2.75in; object-position: center; }
-.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 4px 0 16px; }
-.strip img { height: 1.3in; }
-.budget { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.budget div { display: flex; justify-content: space-between; padding: 4px 12px; border-bottom: 1px solid var(--line); font-size: 9.5pt; }
-.budget div:last-child { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
-.budget div span:last-child { font-variant-numeric: tabular-nums; }
+.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0 4px; }
+.photos img { width: 100%; height: 1.55in; object-fit: cover; border-radius: 8px; display: block; }
+.photos div { font-size: 8pt; color: var(--muted); margin-top: 4px; }
 
-.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 18px; }
-.tier { border-radius: 18px; padding: 16px 16px 18px; border: 1px solid var(--g200); background: #fff; }
-.tier.t1 { background: var(--g900); color: #fff; border-color: var(--g900); }
-.tier.t2 { background: var(--g100); }
-.tier .name { font-weight: 650; font-size: 11pt; }
-.pill { display: inline-block; margin: 10px 0 14px; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13pt; background: #fff; color: var(--g900); border: 1px solid var(--g200); }
-.tier.t1 .pill { border-color: #fff; }
-.tier ul { list-style: none; }
-.tier li { position: relative; padding-left: 18px; margin-bottom: 6px; font-size: 9.5pt; line-height: 1.35; }
-.tier li::before { content: ''; position: absolute; left: 0; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--g500); }
-.tier.t1 li::before { background: #8fd6aa; }
-.help { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
-.help > div { background: var(--g50); border-radius: 14px; padding: 13px 14px; }
-.help p { font-size: 9pt; color: var(--muted); margin: 0; }
-.give { border-radius: 18px; background: var(--g100); padding: 18px 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
-.give p { margin-bottom: 4px; font-size: 9.5pt; }
-.give .k { color: var(--muted); font-size: 8.5pt; margin-bottom: 1px; }
+table.b { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 4px 0 6px; }
+table.b td { padding: 6px 0; border-bottom: 1px solid var(--line); }
+table.b td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: 12px; }
+table.b tr.total td { border-bottom: 0; border-top: 2px solid var(--green); font-weight: 650; padding-top: 8px; }
+
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 10px; }
+.tier { border: 1px solid var(--line); border-top: 4px solid var(--green); border-radius: 8px; padding: 12px 14px 12px; }
+.tier.one { background: var(--tint); }
+.tier .amt { font-family: 'Inter Display', Inter; font-size: 17pt; font-weight: 700; color: var(--dark); margin: 2px 0 8px; }
+.tier li { font-size: 9.5pt; margin-bottom: 3px; }
+
+.form { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px 6px; margin-top: 8px; }
+.field { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 14px; font-size: 9.5pt; }
+.field span { white-space: nowrap; }
+.field i { flex: 1; border-bottom: 1px solid #8f9b94; height: 1px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.check { display: flex; gap: 22px; flex-wrap: wrap; margin: 2px 0 14px; font-size: 9.5pt; }
+.box { display: inline-block; width: 11px; height: 11px; border: 1px solid #6c786f; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
 
 /* letters */
-.letter { font-size: 10.5pt; line-height: 1.55; }
-.letter .date { margin-bottom: 18px; }
-.letter .to { margin-bottom: 18px; line-height: 1.4; }
-.letter p { margin-bottom: 11px; }
-.sig { margin-top: 18px; }
-.sigs { display: flex; gap: 40px; margin: 34px 0 6px; }
-.sigs div { width: 2.2in; border-top: 1px solid #9aa79f; padding-top: 4px; font-size: 8.5pt; color: var(--muted); }
-.foot { position: absolute; left: 0.7in; right: 0.7in; bottom: 0.45in; border-top: 1px solid var(--line); padding-top: 8px; font-size: 8pt; color: var(--muted); display: flex; justify-content: space-between; }
-.enc { font-size: 8.5pt; color: var(--muted); margin-top: 14px; }
-table.b { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 6px 0 14px; font-size: 9.5pt; }
-table.b td { padding: 7px 12px; border-bottom: 1px solid var(--line); }
-table.b td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-table.b tr:last-child td { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
-ul.dots { list-style: none; margin: 4px 0 12px; }
-ul.dots li { position: relative; padding-left: 16px; margin-bottom: 5px; }
-ul.dots li::before { content: ''; position: absolute; left: 0; top: 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--g500); }
+.lh { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--green); padding-bottom: 10px; margin-bottom: 30px; }
+.lh .name { font-family: 'Inter Display', Inter; font-weight: 700; font-size: 17pt; line-height: 1.1; }
+.lh .tag { font-size: 8.5pt; color: var(--muted); }
+.lh .right { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.5; }
+.letter { font-size: 10.5pt; line-height: 1.6; }
+.letter .to { margin: 18px 0 20px; line-height: 1.45; }
+.letter p { margin-bottom: 12px; }
+.sign { margin-top: 30px; line-height: 1.45; }
+.enc { margin-top: 18px; font-size: 9pt; color: var(--muted); }
+.foot { position: absolute; left: 0.75in; right: 0.75in; bottom: 0.45in; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 7px; display: flex; justify-content: space-between; }
 </style></head><body>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">The Frankenmuth Community Foundation<br>Attn: Executive Director<br>P.O. Box 386<br>Frankenmuth, MI 48734</div>
   <p>Dear Members of the Board,</p>
-  <p>On behalf of the students of Complete Robotics, I'm requesting a $2,500 grant toward a CNC router for our team workshop.</p><p>Complete Robotics (FIRST Robotics Competition Team 10978) is a community team for students in grades 7–12, part of Complete Worship's STEM programs in Frankenmuth. Our students come from public, private, virtual and home schools and the career center, in Frankenmuth, Birch Run, Saginaw and Bay City. In our 2026 rookie season they designed the entire robot themselves and 3D-printed every custom part. We reached the finals at both district events, won the Rookie All-Star Award and qualified for the FIRST in Michigan State Championship.</p><p>This year our goal is the FIRST Championship. A CNC router lets students machine strong, precise aluminum parts instead of printing plastic, and it teaches the same design-to-machine process used by manufacturers across Saginaw County. It will serve every student on the team for years, not just this season.</p><p>The full CNC setup costs about $6,500, and our season budget is $31,000. A $2,500 grant would cover the router or its enclosure and tooling. We'd be glad to recognize the Foundation on the machine and on the robot.</p>
-  
-  <p>Thank you for your support of the greater Frankenmuth area. We'd welcome the chance to bring students and the robot to a board meeting.</p>
-  <div class="sig">Respectfully,</div>
-  <div class="sigs"><div>Sarah Rice, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">SarahRice@CompleteWorship.org · CompleteWorship.org/programs/stem</p>
-  <p class="enc">Enclosed: sponsorship sheet, IRS determination letter</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>On behalf of Complete Robotics, I am requesting a grant of $2,500 to help purchase a CNC router for our team workshop.</p><p>Complete Robotics (FIRST Robotics Competition Team 10978) is a community team for students in grades 7 through 12, run as part of Complete Worship's youth programs in Frankenmuth. Our students come from public, private, virtual and home schools in Frankenmuth, Birch Run, Saginaw and Bay City. In our first season, 2025–26, they reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>Last season we had no way to machine metal, so students 3D printed many of the robot's custom parts. A CNC router would let them cut those parts from aluminum and learn the same process that local manufacturers use. The machine would serve the team for many seasons.</p><p>The router, enclosure and tooling will cost about $6,500. Your grant would cover more than a third of that cost, and we are seeking the balance from other local funders and sponsors. We would be glad to bring students and the robot to a board meeting.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet; IRS determination letter</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">Frankenmuth Credit Union Foundation for Our Communities<br>Attn: Marketing<br>P.O. Box 209<br>Frankenmuth, MI 48734</div>
   <p>Dear Members of the Foundation Board,</p>
-  <p>Complete Robotics is requesting a $2,500 grant to buy robot parts and CNC tooling for our 2026–27 season. Our completed application form is enclosed.</p><p>Complete Robotics (FIRST Robotics Competition Team 10978) is a community team for students in grades 7–12, part of Complete Worship's STEM programs in Frankenmuth. Our students come from public, private, virtual and home schools and the career center, in Frankenmuth, Birch Run, Saginaw and Bay City. In our 2026 rookie season they designed the entire robot themselves and 3D-printed every custom part. We reached the finals at both district events, won the Rookie All-Star Award and qualified for the FIRST in Michigan State Championship.</p><p>This spring our students will design, machine, wire and program a new robot with one goal: qualify for the FIRST Championship. Your grant would pay for motors, motor controllers and CNC end mills, the parts that turn student designs into a robot that can compete.</p>
-  
-  <p>We'd be glad to present to your board with students and the robot, and to recognize the Foundation on the robot and our team shirts.</p>
-  <div class="sig">Respectfully,</div>
-  <div class="sigs"><div>Sarah Rice, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">SarahRice@CompleteWorship.org · CompleteWorship.org/programs/stem</p>
-  <p class="enc">Enclosed: sponsorship sheet, IRS determination letter, FCU grant application form</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>On behalf of Complete Robotics, I am requesting a grant of $2,500 for robot parts and CNC tooling for our 2026–27 season. Our completed application form is enclosed.</p><p>Complete Robotics (FIRST Robotics Competition Team 10978) is a community team for students in grades 7 through 12, run as part of Complete Worship's youth programs in Frankenmuth. Our students come from public, private, virtual and home schools in Frankenmuth, Birch Run, Saginaw and Bay City. In our first season, 2025–26, they reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the students want to qualify for the FIRST Championship. Your grant would pay for motors, motor controllers and cutting tools for our new CNC router. Our total budget for the season is about $31,000.</p><p>We would be glad to present to the board with students and the robot, and to recognize the Foundation on our robot and team shirts.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Grant application form; sponsorship packet; IRS determination letter</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">The Herbert H. and Grace A. Dow Foundation<br>Midland, MI 48640</div>
   <p>Dear Trustees,</p>
-  <p>Complete Robotics, a nonprofit youth robotics team based in Frankenmuth, is requesting a $10,000 grant. It would give Great Lakes Bay Region high school students a CNC machining setup and the robot parts they need to compete for a spot at the FIRST Championship.</p><p>Complete Robotics (FIRST Robotics Competition Team 10978) is a community team for students in grades 7–12, part of Complete Worship's STEM programs in Frankenmuth. Our students come from public, private, virtual and home schools and the career center, in Frankenmuth, Birch Run, Saginaw and Bay City. In our 2026 rookie season they designed the entire robot themselves and 3D-printed every custom part. We reached the finals at both district events, won the Rookie All-Star Award and qualified for the FIRST in Michigan State Championship.</p><p>The region's chemical, semiconductor and manufacturing employers need people who can design, machine and program. Because we're a community team open to students from any school, we can't receive Michigan's school-based 99h robotics grant, so we rely on private support. The grant would fund:</p>
-  <table class="b"><tr><td>CNC router setup: router, stand, enclosure, dust collection and tooling</td><td>$6,500</td></tr><tr><td>Robot motors, controllers and electronics</td><td>$3,500</td></tr><tr><td>Total request</td><td>$10,000</td></tr></table>
-  <p>We'll report the number of students trained, hours of hands-on machining and programming, competition results, and what our graduates go on to study. We'd welcome the chance to submit a full proposal or bring students and the robot to Midland.</p>
-  <div class="sig">Respectfully,</div>
-  <div class="sigs"><div>Sarah Rice, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">SarahRice@CompleteWorship.org · CompleteWorship.org/programs/stem</p>
-  <p class="enc">Enclosed: sponsorship sheet, IRS determination letter</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>On behalf of Complete Robotics, I am requesting a grant of $10,000 to equip our team with a CNC router and the robot parts students need for the 2026–27 season.</p><p>Complete Robotics (FIRST Robotics Competition Team 10978) is a community team for students in grades 7 through 12, run as part of Complete Worship's youth programs in Frankenmuth. Our students come from public, private, virtual and home schools in Frankenmuth, Birch Run, Saginaw and Bay City. In our first season, 2025–26, they reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>Last season we had no way to machine metal, so students 3D printed many of the robot's custom parts. A CNC router would let them cut those parts from aluminum and learn the same process that local manufacturers use. The machine would serve the team for many seasons.</p><p>The grant would fund the CNC router, enclosure and tooling ($6,500) and motors, controllers and electronics ($3,500). As a community team, we are not eligible for Michigan's school-based robotics grant, so we rely on private support.</p><p>We will report the number of students trained, competition results and the cost of every purchase. We would welcome the chance to submit a full proposal or to bring students and the robot to Midland.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet; IRS determination letter; CNC project summary</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
-  <div class="right">Project summary</div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
+  <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <h2 style="font-size:20pt">CNC workshop project</h2>
-  <p class="muted">Attach to applications that ask for a project description or budget: Gene Haas Foundation, Hemlock Semiconductor CARE, Saginaw Community Foundation, Consumers Energy.</p>
-  <h3 style="margin-top:14px">The need</h3>
-  <p>In our 2026 rookie season, students designed a complete competition robot but had no way to machine metal. Every custom part was 3D-printed. Printed parts take longer to make, break more easily on impact, and limit what students can design. The robot still reached the finals at both district events and qualified for the State Championship. Our mentors include people with machining experience; what we lack is the machine. A CNC router is the biggest upgrade between us and a FIRST Championship robot.</p>
-  <h3>The project</h3>
-  <ul class="dots">
-    <li>Buy and set up a benchtop CNC router (Omio X8 class, the most common router on FRC teams) with a stand, enclosure and dust collection.</li>
-    <li>Train students in the full process: design in CAD, program toolpaths, set up the machine safely, cut parts and check them against the drawing.</li>
-    <li>Build our 2027 robot with student-machined aluminum and polycarbonate parts, and offer CNC help to other local teams.</li>
+  <h1 style="font-size:20pt; margin-bottom:6px">CNC Router Project Summary</h1>
+  <p class="muted small">Complete Robotics, FRC Team 10978 &nbsp;·&nbsp; For use with grant applications</p>
+  <h2 style="margin-top:14px">Need</h2>
+  <p>In our 2025–26 rookie season, students designed and built a competition robot that reached the finals at both of our district events and qualified for the Michigan State Championship. Without a way to machine metal, they 3D printed many of the custom parts. Printed parts take longer to make, wear faster and limit what students can design. Our mentors have machining experience; what we need is the machine.</p>
+  <h2>Project</h2>
+  <ul class="list">
+    <li>Purchase and install a benchtop CNC router (Omio X8 class, a common choice for FIRST teams) with a stand, enclosure and dust collection.</li>
+    <li>Train students to design parts in CAD, create toolpaths, set up the machine safely, cut parts and check them against the drawing.</li>
+    <li>Build the 2027 robot with student-machined aluminum and polycarbonate parts.</li>
   </ul>
-  <h3>Budget</h3>
+  <h2>Budget (estimated)</h2>
   <table class="b">
     <tr><td>CNC router, Omio X8-2200L class (WCP lists it at $3,999.99)</td><td>$4,000</td></tr>
     <tr><td>Machine stand and enclosure</td><td>$1,000</td></tr>
     <tr><td>Dust collection</td><td>$400</td></tr>
-    <tr><td>End mills, bits, collets and workholding</td><td>$700</td></tr>
+    <tr><td>End mills, collets and workholding</td><td>$700</td></tr>
     <tr><td>Spoilboard, safety equipment, wiring and setup</td><td>$400</td></tr>
-    <tr><td>Total</td><td>$6,500</td></tr>
+    <tr class="total"><td>Total</td><td>$6,500</td></tr>
   </table>
-  <h3>What we'll report</h3>
-  <ul class="dots">
-    <li>Students trained on the CNC (goal: everyone on the build team)</li>
-    <li>Share of custom robot parts machined in-house (goal: most structural parts)</li>
-    <li>Competition results, including whether we qualify for the FIRST Championship</li>
-    <li>Students going on to engineering, manufacturing or skilled-trades programs</li>
+  <h2 style="margin-top:12px">What we will report</h2>
+  <ul class="list">
+    <li>Number of students trained on the machine</li>
+    <li>Share of the robot's custom parts made in-house</li>
+    <li>Competition results for the 2026–27 season</li>
+    <li>Students who go on to study engineering, manufacturing or the skilled trades</li>
   </ul>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
 </section></body></html>

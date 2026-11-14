@@ -1,348 +1,188 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Sponsor Letters</title><style>
+<!doctype html><html><head><meta charset="utf-8"><title>Complete Robotics Sponsor Letters</title><style>
 @page { size: Letter; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --ink: #16201a; --muted: #56635b; --line: #dfe7e1;
-  --g900: #12422a; --g700: #1d6b3f; --g500: #2f9a5c; --g200: #cfe9d8; --g100: #e9f5ee; --g50: #f5faf7;
-}
+:root { --ink:#1b211d; --muted:#5b665f; --line:#d9e1dc; --green:#1f6b42; --dark:#15462c; --tint:#eef6f1; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; }
-.page { width: 8.5in; height: 11in; padding: 0.6in 0.7in; position: relative; overflow: hidden; page-break-after: always; }
+body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.55; }
+.page { width: 8.5in; height: 11in; padding: 0.65in 0.75in 0.8in; position: relative; overflow: hidden; page-break-after: always; }
 .page:last-child { page-break-after: auto; }
-h1 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 700; font-size: 30pt; line-height: 1.05; letter-spacing: -0.02em; }
-h2 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 650; font-size: 15pt; letter-spacing: -0.01em; margin-bottom: 8px; }
-h3 { font-weight: 650; font-size: 11pt; margin-bottom: 4px; }
+h1 { font-family: 'Inter Display', Inter; font-weight: 700; font-size: 32pt; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-family: 'Inter Display', Inter; font-weight: 650; font-size: 13.5pt; color: var(--green); margin: 0 0 6px; }
+h3 { font-size: 10.5pt; font-weight: 650; margin-bottom: 3px; }
 p { margin-bottom: 9px; }
 .muted { color: var(--muted); }
 .small { font-size: 9pt; }
+.rule { border-top: 1px solid var(--line); margin: 16px 0; }
 
-/* brand bar */
-.brand { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
-.mark { display: flex; align-items: center; gap: 10px; }
-.chip { background: var(--g700); color: #fff; font-weight: 700; font-size: 9pt; padding: 5px 9px; border-radius: 8px; letter-spacing: 0.02em; }
-.mark b { font-size: 12pt; font-weight: 700; }
-.mark span { display: block; font-size: 8.5pt; color: var(--muted); }
-.brand .right { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+.top { display: flex; justify-content: space-between; align-items: baseline; font-size: 8.5pt; color: var(--muted);
+  border-bottom: 2px solid var(--green); padding-bottom: 8px; margin-bottom: 22px; }
+.top b { color: var(--ink); font-size: 10pt; }
+.sub { font-size: 12pt; color: var(--muted); margin: 6px 0 18px; }
+.cover { width: 100%; height: 2.8in; object-fit: cover; object-position: center 64%; border-radius: 10px; display: block; }
+.cap { font-size: 8pt; color: var(--muted); margin: 5px 0 18px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+ul.list { list-style: none; margin: 2px 0 10px; }
+ul.list li { position: relative; padding-left: 15px; margin-bottom: 4px; }
+ul.list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
-/* packet */
-.lead { font-size: 12pt; color: #2b3830; max-width: 6.3in; margin: 12px 0 22px; }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
-.stat { background: var(--g50); border: 1px solid var(--g200); border-radius: 14px; padding: 12px 12px 11px; }
-.stat b { display: block; font-family: 'Inter Display', Inter; font-size: 19pt; font-weight: 700; color: var(--g700); line-height: 1.1; margin-bottom: 4px; }
-.stat span { font-size: 8.5pt; color: var(--muted); line-height: 1.35; display: block; }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-.hero { display: grid; grid-template-columns: 1fr 2.75in; gap: 20px; margin: 10px 0 16px; align-items: start; }
-.hero .lead { margin: 0 0 14px; font-size: 11pt; }
-.hero .stats { grid-template-columns: 1fr 1fr; margin: 0; gap: 8px; }
-.hero .stat { padding: 9px 11px; }
-.hero .stat b { font-size: 16pt; }
-figure img { width: 100%; display: block; border-radius: 14px; object-fit: cover; }
-figcaption { font-size: 8pt; color: var(--muted); margin-top: 5px; }
-.hero figure img { height: 2.75in; object-position: center; }
-.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 4px 0 16px; }
-.strip img { height: 1.3in; }
-.budget { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.budget div { display: flex; justify-content: space-between; padding: 4px 12px; border-bottom: 1px solid var(--line); font-size: 9.5pt; }
-.budget div:last-child { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
-.budget div span:last-child { font-variant-numeric: tabular-nums; }
+.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 10px 0 4px; }
+.photos img { width: 100%; height: 1.55in; object-fit: cover; border-radius: 8px; display: block; }
+.photos div { font-size: 8pt; color: var(--muted); margin-top: 4px; }
 
-.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 18px; }
-.tier { border-radius: 18px; padding: 16px 16px 18px; border: 1px solid var(--g200); background: #fff; }
-.tier.t1 { background: var(--g900); color: #fff; border-color: var(--g900); }
-.tier.t2 { background: var(--g100); }
-.tier .name { font-weight: 650; font-size: 11pt; }
-.pill { display: inline-block; margin: 10px 0 14px; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13pt; background: #fff; color: var(--g900); border: 1px solid var(--g200); }
-.tier.t1 .pill { border-color: #fff; }
-.tier ul { list-style: none; }
-.tier li { position: relative; padding-left: 18px; margin-bottom: 6px; font-size: 9.5pt; line-height: 1.35; }
-.tier li::before { content: ''; position: absolute; left: 0; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--g500); }
-.tier.t1 li::before { background: #8fd6aa; }
-.help { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
-.help > div { background: var(--g50); border-radius: 14px; padding: 13px 14px; }
-.help p { font-size: 9pt; color: var(--muted); margin: 0; }
-.give { border-radius: 18px; background: var(--g100); padding: 18px 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
-.give p { margin-bottom: 4px; font-size: 9.5pt; }
-.give .k { color: var(--muted); font-size: 8.5pt; margin-bottom: 1px; }
+table.b { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 4px 0 6px; }
+table.b td { padding: 6px 0; border-bottom: 1px solid var(--line); }
+table.b td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: 12px; }
+table.b tr.total td { border-bottom: 0; border-top: 2px solid var(--green); font-weight: 650; padding-top: 8px; }
+
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 8px 0 10px; }
+.tier { border: 1px solid var(--line); border-top: 4px solid var(--green); border-radius: 8px; padding: 12px 14px 12px; }
+.tier.one { background: var(--tint); }
+.tier .amt { font-family: 'Inter Display', Inter; font-size: 17pt; font-weight: 700; color: var(--dark); margin: 2px 0 8px; }
+.tier li { font-size: 9.5pt; margin-bottom: 3px; }
+
+.form { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px 6px; margin-top: 8px; }
+.field { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 14px; font-size: 9.5pt; }
+.field span { white-space: nowrap; }
+.field i { flex: 1; border-bottom: 1px solid #8f9b94; height: 1px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.check { display: flex; gap: 22px; flex-wrap: wrap; margin: 2px 0 14px; font-size: 9.5pt; }
+.box { display: inline-block; width: 11px; height: 11px; border: 1px solid #6c786f; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
 
 /* letters */
-.letter { font-size: 10.5pt; line-height: 1.55; }
-.letter .date { margin-bottom: 18px; }
-.letter .to { margin-bottom: 18px; line-height: 1.4; }
-.letter p { margin-bottom: 11px; }
-.sig { margin-top: 18px; }
-.sigs { display: flex; gap: 40px; margin: 34px 0 6px; }
-.sigs div { width: 2.2in; border-top: 1px solid #9aa79f; padding-top: 4px; font-size: 8.5pt; color: var(--muted); }
-.foot { position: absolute; left: 0.7in; right: 0.7in; bottom: 0.45in; border-top: 1px solid var(--line); padding-top: 8px; font-size: 8pt; color: var(--muted); display: flex; justify-content: space-between; }
-.enc { font-size: 8.5pt; color: var(--muted); margin-top: 14px; }
-table.b { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 6px 0 14px; font-size: 9.5pt; }
-table.b td { padding: 7px 12px; border-bottom: 1px solid var(--line); }
-table.b td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-table.b tr:last-child td { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
-ul.dots { list-style: none; margin: 4px 0 12px; }
-ul.dots li { position: relative; padding-left: 16px; margin-bottom: 5px; }
-ul.dots li::before { content: ''; position: absolute; left: 0; top: 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--g500); }
+.lh { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--green); padding-bottom: 10px; margin-bottom: 30px; }
+.lh .name { font-family: 'Inter Display', Inter; font-weight: 700; font-size: 17pt; line-height: 1.1; }
+.lh .tag { font-size: 8.5pt; color: var(--muted); }
+.lh .right { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.5; }
+.letter { font-size: 10.5pt; line-height: 1.6; }
+.letter .to { margin: 18px 0 20px; line-height: 1.45; }
+.letter p { margin-bottom: 12px; }
+.sign { margin-top: 30px; line-height: 1.45; }
+.enc { margin-top: 18px; font-size: 9pt; color: var(--muted); }
+.foot { position: absolute; left: 0.75in; right: 0.75in; bottom: 0.45in; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 7px; display: flex; justify-content: space-between; }
 </style></head><body>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
-  <div class="to">Kremin Inc.<br>235 Keystone Way<br>Frankenmuth, MI 48734</div>
-  <p>Dear Kremin team,</p>
-  <p>We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.</p>
-  <p>CNC machining is exactly what our students want to learn next, and you do it a few miles from where we build. We have mentors who know machining; what we don't have is a machine. Kremin also sponsored Frankenmuth High School's robotics team in 2018, so you've seen what these programs do for students.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're asking Kremin to sponsor us at Tier One ($1,500). If cash isn't possible this year, a few hours of machine time, a shop tour, or a machinist willing to teach our students CNC setup would help just as much. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <div>November 2026</div>
+  <div class="to">Mr. Mike Grossi<br>President, Kremin Inc.<br>235 Keystone Way<br>Frankenmuth, MI 48734</div>
+  <p>Dear Mr. Grossi,</p>
+  <p>I'm writing on behalf of Complete Robotics, a community FIRST Robotics Competition team (Team 10978) based here in Frankenmuth. Our students are in grades 7 through 12 and come from Frankenmuth, Birch Run, Saginaw and Bay City.</p><p>Last season was our first. The students designed, built and programmed their own robot, reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season we are raising money for a CNC router. Last year we 3D printed many of our custom parts because we had no way to machine metal, and we want students to learn to make those parts from aluminum. Since Kremin does precision machining right here in town, we would be grateful for your help in whatever form works for you: a sponsorship, machine time for a few parts, or a visit where students could see how a professional shop runs.</p><p>I've enclosed our sponsorship packet, which lists our sponsorship levels and how sponsors are recognized. I'll follow up by phone in the next week or so. We would also be glad to bring the robot by so you can see it in person.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">Frankenmuth Bavarian Inn<br>Frankenmuth, MI 48734</div>
-  <p>Dear Bavarian Inn team,</p>
-  <p>We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.</p>
-  <p>The Bavarian Inn is one of Frankenmuth's biggest employers, and a lot of our families have worked there or celebrated there. We'd like to carry the Bavarian Inn name on our robot at every event this season.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're asking for a Tier One sponsorship of $2,500. That would cover more than a third of the CNC router. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>Dear Friends at the Bavarian Inn,</p>
+  <p>I'm writing on behalf of Complete Robotics, a community FIRST Robotics Competition team (Team 10978) based here in Frankenmuth. Our students are in grades 7 through 12 and come from Frankenmuth, Birch Run, Saginaw and Bay City.</p><p>Last season was our first. The students designed, built and programmed their own robot, reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the team wants to qualify for the FIRST Championship in Houston. We are raising about $31,000 for a CNC router, robot parts and event fees. Last year we 3D printed many of our custom parts because we had no way to machine metal, so the router is our top priority.</p><p>Would the Bavarian Inn consider sponsoring us at the Tier One level ($1,500 or more)? Your name would be on the robot, our team shirts and our pit display at every event this season. I've enclosed our sponsorship packet, which lists our sponsorship levels and how sponsors are recognized.</p><p>I'll follow up by phone in the next week or so. We would also be glad to bring the robot by so you can see it in person.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">Bronner's CHRISTmas Wonderland<br>Frankenmuth, MI 48734</div>
-  <p>Dear Bronner's team,</p>
-  <p>We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.</p>
-  <p>Bronner's is the reason people from all over the world know where Frankenmuth is. We'd like to take that name to competitions across Michigan.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're asking for a Tier One sponsorship of $1,500, which would pay for most of the motors on our drivetrain. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>Dear Friends at Bronner's,</p>
+  <p>I'm writing on behalf of Complete Robotics, a community FIRST Robotics Competition team (Team 10978) based here in Frankenmuth. Our students are in grades 7 through 12 and come from Frankenmuth, Birch Run, Saginaw and Bay City.</p><p>Last season was our first. The students designed, built and programmed their own robot, reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the team wants to qualify for the FIRST Championship in Houston. We are raising about $31,000 for a CNC router, robot parts and event fees. Last year we 3D printed many of our custom parts because we had no way to machine metal, so the router is our top priority.</p><p>Would Bronner's consider sponsoring us at the Tier One level ($1,500 or more)? Your name would travel with the robot to every event this season. I've enclosed our sponsorship packet, which lists our sponsorship levels and how sponsors are recognized.</p><p>I'll follow up by phone in the next week or so. We would also be glad to bring the robot by so you can see it in person.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">Star of the West Milling Company<br>Frankenmuth, MI 48734</div>
-  <p>Dear Star of the West team,</p>
-  <p>We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.</p>
-  <p>You know how hard it is to find people who can run equipment, troubleshoot it, and fix it. Our students spend the season doing exactly that: wiring motors and sensors, writing control code, and repairing the robot between matches.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're asking for a Tier Two sponsorship of $1,000. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>Dear Friends at Star of the West,</p>
+  <p>I'm writing on behalf of Complete Robotics, a community FIRST Robotics Competition team (Team 10978) based here in Frankenmuth. Our students are in grades 7 through 12 and come from Frankenmuth, Birch Run, Saginaw and Bay City.</p><p>Last season was our first. The students designed, built and programmed their own robot, reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the team wants to qualify for the FIRST Championship in Houston. We are raising about $31,000 for a CNC router, robot parts and event fees. Last year we 3D printed many of our custom parts because we had no way to machine metal, so the router is our top priority.</p><p>Our students spend the season wiring motors and sensors, writing control code and repairing the robot between matches. Those are the same skills local manufacturers look for. Would Star of the West consider sponsoring us at the Tier Two level ($500 to $1,499)? I've enclosed our sponsorship packet, which lists our sponsorship levels and how sponsors are recognized.</p><p>I'll follow up by phone in the next week or so. We would also be glad to bring the robot by so you can see it in person.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">Frankenmuth Woolen Mill<br>Frankenmuth, MI 48734</div>
-  <p>Dear Woolen Mill team,</p>
-  <p>We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.</p>
-  <p>The Woolen Mill has been making things in Frankenmuth for more than a century. Our students are learning to make things too, from the first sketch to a working machine.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're asking for a Tier Two sponsorship of $500. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>Dear Friends at the Frankenmuth Woolen Mill,</p>
+  <p>I'm writing on behalf of Complete Robotics, a community FIRST Robotics Competition team (Team 10978) based here in Frankenmuth. Our students are in grades 7 through 12 and come from Frankenmuth, Birch Run, Saginaw and Bay City.</p><p>Last season was our first. The students designed, built and programmed their own robot, reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the team wants to qualify for the FIRST Championship in Houston. We are raising about $31,000 for a CNC router, robot parts and event fees. Last year we 3D printed many of our custom parts because we had no way to machine metal, so the router is our top priority.</p><p>Would the Woolen Mill consider sponsoring us at the Tier Two level ($500 to $1,499)? I've enclosed our sponsorship packet, which lists our sponsorship levels and how sponsors are recognized.</p><p>I'll follow up by phone in the next week or so. We would also be glad to bring the robot by so you can see it in person.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">Frankenmuth Brewery<br>Frankenmuth, MI 48734</div>
-  <p>Dear Frankenmuth Brewery team,</p>
-  <p>We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.</p>
-  <p>We'd love to have a downtown business on the robot. We'd also be glad to bring it to the Brewery for a family demo night. It draws a crowd.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're asking for a Tier Two sponsorship of $500, or the chance to host a team night with you. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>Dear Friends at Frankenmuth Brewery,</p>
+  <p>I'm writing on behalf of Complete Robotics, a community FIRST Robotics Competition team (Team 10978) based here in Frankenmuth. Our students are in grades 7 through 12 and come from Frankenmuth, Birch Run, Saginaw and Bay City.</p><p>Last season was our first. The students designed, built and programmed their own robot, reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the team wants to qualify for the FIRST Championship in Houston. We are raising about $31,000 for a CNC router, robot parts and event fees. Last year we 3D printed many of our custom parts because we had no way to machine metal, so the router is our top priority.</p><p>Would Frankenmuth Brewery consider sponsoring us at the Tier Two level ($500 to $1,499)? We would also be happy to bring the robot downtown for a demonstration. I've enclosed our sponsorship packet, which lists our sponsorship levels and how sponsors are recognized.</p><p>I'll follow up by phone in the next week or so. We would also be glad to bring the robot by so you can see it in person.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
-  <div class="to">Nexteer Automotive<br>Community Relations<br>Saginaw, MI</div>
-  <p>Dear Nexteer Community Relations team,</p>
-  <p>We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.</p>
-  <p>Nexteer has supported FIRST teams around Saginaw for years, and steering is something our students know well. Our swerve drivetrain steers each wheel independently under software control. Your engineers would recognize the problem right away.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're asking for a Tier One sponsorship of $2,500. We'd also be grateful for help finding one or two engineers who could mentor our students through build season. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <div>November 2026</div>
+  <div class="to">Community Relations<br>Nexteer Automotive<br>Saginaw, MI</div>
+  <p>Dear Nexteer Community Relations Team,</p>
+  <p>I'm writing on behalf of Complete Robotics, a community FIRST Robotics Competition team (Team 10978) based here in Frankenmuth. Our students are in grades 7 through 12 and come from Frankenmuth, Birch Run, Saginaw and Bay City.</p><p>Last season was our first. The students designed, built and programmed their own robot, reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the team wants to qualify for the FIRST Championship in Houston. We are raising about $31,000 for a CNC router, robot parts and event fees. Last year we 3D printed many of our custom parts because we had no way to machine metal, so the router is our top priority.</p><p>Nexteer has supported FIRST teams in the Saginaw area for many years, and our students would benefit from that experience. We are asking Nexteer to consider sponsoring us at the Tier One level ($1,500 or more). We would also welcome one or two Nexteer engineers as volunteer mentors during the build season. I've enclosed our sponsorship packet, which lists our sponsorship levels and how sponsors are recognized.</p><p>I'll follow up by phone in the next week or so. We would also be glad to bring the robot by so you can see it in person.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  <div class="enc">Enclosure: Sponsorship packet</div>
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">John Deere<br>Attn: FIRST sponsorship contact</div>
-  <p>Dear John Deere team,</p>
-  <p>We're Complete Robotics, FIRST Robotics Competition Team 10978 from Frankenmuth, Michigan.</p>
-  <p>John Deere helped fund our rookie season, and we want you to know what it turned into: we reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. Thank you.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We'd be grateful if John Deere would renew its support for 2026–27 at Tier One. Your logo would stay on the robot and our shirts, and we'll send updates through the season. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
+  <p>Dear John Deere Team,</p>
+  <p>Thank you for supporting Complete Robotics, FIRST Robotics Competition Team 10978 from Frankenmuth, Michigan, during our rookie season. I wanted to let you know how that season went.</p><p>With your help, our students designed, built and programmed their first robot. They reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season the team wants to qualify for the FIRST Championship in Houston, and we hope to continue working with John Deere. Your logo will remain on our robot and team shirts, and we will send updates throughout the season.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
+  
 </section>
 <section class="page letter">
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+<div class="lh">
+  <div><div class="name">Complete Robotics</div><div class="tag">FIRST Robotics Competition Team 10978 · Frankenmuth, Michigan</div></div>
   <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
 </div>
-  <div class="date">November 2026</div>
+  <div>November 2026</div>
   <div class="to">Polymaker<br>Attn: Sponsorship team</div>
-  <p>Dear Polymaker team,</p>
-  <p>We're Complete Robotics, FIRST Robotics Competition Team 10978 from Frankenmuth, Michigan.</p>
-  <p>Polymaker sponsored our rookie season. With no machine shop, 3D printing was how we built every custom part, and those parts got us to the Michigan State Championship.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>We're adding a CNC router this year, but we'll still print a lot: prototypes, sensor mounts, brackets and covers. Would Polymaker renew its filament sponsorship for 2026–27? We'd keep your logo on the robot and tag you in our build posts. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
-</section>
-<section class="page letter">
+  <p>Dear Polymaker Team,</p>
+  <p>Thank you for sponsoring Complete Robotics, FIRST Robotics Competition Team 10978 from Frankenmuth, Michigan, during our rookie season.</p><p>Your filament went into many of the parts on our first robot, including gears and the shooter frame. That robot reached the finals at both of our district events, won the Rookie All Star Award and qualified for the Michigan State Championship.</p><p>This season we are adding a CNC router, but we will still print prototypes, brackets and covers. We would be grateful if Polymaker would continue its filament sponsorship for the 2026–27 season. We will keep your logo on the robot and tag you in our build-season posts.</p>
+  <p>Thank you for considering our request.</p>
+  <div class="sign">Sincerely,<br><br><br>Sarah Rice<br>Complete Robotics, FRC Team 10978<br>SarahRice@CompleteWorship.org</div>
   
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
-  <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
-</div>
-  <div class="date">November 2026</div>
-  <div class="to">Dell Technologies<br>Community and Education Giving</div>
-  <p>Dear Dell Technologies team,</p>
-  <p>We're Complete Robotics, a high school FIRST Robotics Competition team (Team 10978) from Frankenmuth, Michigan.</p>
-  <p>Our students design the robot in CAD, write its code in Java, and this year will program CNC toolpaths too. Right now they share a few old computers that slow to a crawl on a full robot assembly.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>Would Dell Technologies donate four to six laptops that can run CAD, new or refurbished? A grant toward computers would help just as much. We'd recognize Dell Technologies as a Tier One sponsor on the robot, our shirts and our website. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
-</section>
-<section class="page letter">
-  
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
-  <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
-</div>
-  <div class="date">November 2026</div>
-  <div class="to">HP<br>Community and Education Giving</div>
-  <p>Dear HP team,</p>
-  <p>We're Complete Robotics, a high school FIRST Robotics Competition team (Team 10978) from Frankenmuth, Michigan.</p>
-  <p>Our students design the robot in CAD, write its code in Java, and this year will program CNC toolpaths too. Right now they share a few old computers that slow to a crawl on a full robot assembly.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>Would HP donate four to six laptops that can run CAD, new or refurbished? A grant toward computers would help just as much. We'd recognize HP as a Tier One sponsor on the robot, our shirts and our website. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
-</section>
-<section class="page letter">
-  
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
-  <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
-</div>
-  <div class="date">November 2026</div>
-  <div class="to">Apple<br>Community and Education Giving</div>
-  <p>Dear Apple team,</p>
-  <p>We're Complete Robotics, a high school FIRST Robotics Competition team (Team 10978) from Frankenmuth, Michigan.</p>
-  <p>Our students design the robot in CAD, write its code in Java, and this year will program CNC toolpaths too. Right now they share a few old computers that slow to a crawl on a full robot assembly.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>Would Apple donate four to six laptops that can run CAD, new or refurbished? A grant toward computers would help just as much. We'd recognize Apple as a Tier One sponsor on the robot, our shirts and our website. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
-</section>
-<section class="page letter">
-  
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
-  <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
-</div>
-  <div class="date">November 2026</div>
-  <div class="to">Microsoft<br>Community and Education Giving</div>
-  <p>Dear Microsoft team,</p>
-  <p>We're Complete Robotics, a high school FIRST Robotics Competition team (Team 10978) from Frankenmuth, Michigan.</p>
-  <p>Our students design the robot in CAD, write its code in Java, and this year will program CNC toolpaths too. Right now they share a few old computers that slow to a crawl on a full robot assembly.</p>
-  <p>Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is $31,000. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.</p>
-  <p>Would Microsoft donate four to six laptops that can run CAD, new or refurbished? A grant toward computers would help just as much. We'd recognize Microsoft as a Tier One sponsor on the robot, our shirts and our website. We're a 501(c)(3), so the gift is tax-deductible.</p>
-  <p>We'd like to stop by with the robot and show you what we're building. Sarah Rice coordinates our sponsors and can be reached at SarahRice@CompleteWorship.org. Our tier sheet is enclosed.</p>
-  <div class="sig">Thank you,</div>
-  <div class="sigs"><div>Student, Complete Robotics</div><div>Student, Complete Robotics</div></div>
-  <p class="small">Sarah Rice, Complete Robotics · SarahRice@CompleteWorship.org</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
-</section>
-<section class="page letter">
-  
-<div class="brand">
-  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
-  <div class="right">SarahRice@CompleteWorship.org<br>CompleteWorship.org/programs/stem</div>
-</div>
-  <div class="date">November 2026</div>
-  <div class="to">Zehnder's of Frankenmuth<br>Attn: Donation Requests<br>730 S. Main Street<br>Frankenmuth, MI 48734</div>
-  <p>To the Zehnder's donations committee,</p>
-  <p>Complete Robotics, a Frankenmuth youth robotics team and 501(c)(3) nonprofit program, would like to request a donation of four $50 dining certificates for the raffle at our spring robot showcase in March 2027.</p>
-  <p>Complete Robotics is a high school FIRST Robotics Competition team. In our rookie season, students designed and built a robot that qualified for the Michigan State Championship. Raffle proceeds go toward a CNC router so students can machine aluminum parts as we work toward the FIRST Championship.</p>
-  <p>This is our only request to Zehnder's this year. We'd recognize Zehnder's on the event signs and in our social media posts.</p>
-  <p>Thank you for everything you do for Frankenmuth groups.</p>
-  <div class="sigs"><div>Sarah Rice, Complete Robotics</div></div>
-  <p class="small">SarahRice@CompleteWorship.org · CompleteWorship.org/programs/stem</p>
-  <div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: Complete Robotics</span></div>
 </section></body></html>
