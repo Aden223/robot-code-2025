@@ -1,0 +1,142 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Complete Robotics Sponsorship</title><style>
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #16201a; --muted: #56635b; --line: #dfe7e1;
+  --g900: #12422a; --g700: #1d6b3f; --g500: #2f9a5c; --g200: #cfe9d8; --g100: #e9f5ee; --g50: #f5faf7;
+}
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; }
+.page { width: 8.5in; height: 11in; padding: 0.6in 0.7in; position: relative; overflow: hidden; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+h1 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 700; font-size: 34pt; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-family: 'Inter Display', Inter, sans-serif; font-weight: 650; font-size: 15pt; letter-spacing: -0.01em; margin-bottom: 8px; }
+h3 { font-weight: 650; font-size: 11pt; margin-bottom: 4px; }
+p { margin-bottom: 9px; }
+.muted { color: var(--muted); }
+.small { font-size: 9pt; }
+
+/* brand bar */
+.brand { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+.mark { display: flex; align-items: center; gap: 10px; }
+.chip { background: var(--g700); color: #fff; font-weight: 700; font-size: 9pt; padding: 5px 9px; border-radius: 8px; letter-spacing: 0.02em; }
+.mark b { font-size: 12pt; font-weight: 700; }
+.mark span { display: block; font-size: 8.5pt; color: var(--muted); }
+.brand .right { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+
+/* packet */
+.lead { font-size: 12pt; color: #2b3830; max-width: 6.3in; margin: 12px 0 22px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
+.stat { background: var(--g50); border: 1px solid var(--g200); border-radius: 14px; padding: 12px 12px 11px; }
+.stat b { display: block; font-family: 'Inter Display', Inter; font-size: 19pt; font-weight: 700; color: var(--g700); line-height: 1.1; margin-bottom: 4px; }
+.stat span { font-size: 8.5pt; color: var(--muted); line-height: 1.35; display: block; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.photo { width: 100%; height: 2.6in; object-fit: cover; border-radius: 16px; margin-bottom: 18px; display: block; }
+.budget { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.budget div { display: flex; justify-content: space-between; padding: 7px 12px; border-bottom: 1px solid var(--line); font-size: 9.5pt; }
+.budget div:last-child { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
+.budget div span:last-child { font-variant-numeric: tabular-nums; }
+
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 26px; }
+.tier { border-radius: 18px; padding: 16px 16px 18px; border: 1px solid var(--g200); background: #fff; }
+.tier.t1 { background: var(--g900); color: #fff; border-color: var(--g900); }
+.tier.t2 { background: var(--g100); }
+.tier .name { font-weight: 650; font-size: 11pt; }
+.pill { display: inline-block; margin: 10px 0 14px; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13pt; background: #fff; color: var(--g900); border: 1px solid var(--g200); }
+.tier.t1 .pill { border-color: #fff; }
+.tier ul { list-style: none; }
+.tier li { position: relative; padding-left: 18px; margin-bottom: 6px; font-size: 9.5pt; line-height: 1.35; }
+.tier li::before { content: ''; position: absolute; left: 0; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--g500); }
+.tier.t1 li::before { background: #8fd6aa; }
+.help { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.help > div { background: var(--g50); border-radius: 14px; padding: 13px 14px; }
+.help p { font-size: 9pt; color: var(--muted); margin: 0; }
+.give { border-radius: 18px; background: var(--g100); padding: 18px 20px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
+.give p { margin-bottom: 4px; font-size: 9.5pt; }
+.give .k { color: var(--muted); font-size: 8.5pt; margin-bottom: 1px; }
+
+/* letters */
+.letter { font-size: 10.5pt; line-height: 1.55; }
+.letter .date { margin-bottom: 18px; }
+.letter .to { margin-bottom: 18px; line-height: 1.4; }
+.letter p { margin-bottom: 11px; }
+.sig { margin-top: 18px; }
+.sigs { display: flex; gap: 40px; margin: 34px 0 6px; }
+.sigs div { width: 2.2in; border-top: 1px solid #9aa79f; padding-top: 4px; font-size: 8.5pt; color: var(--muted); }
+.foot { position: absolute; left: 0.7in; right: 0.7in; bottom: 0.45in; border-top: 1px solid var(--line); padding-top: 8px; font-size: 8pt; color: var(--muted); display: flex; justify-content: space-between; }
+.enc { font-size: 8.5pt; color: var(--muted); margin-top: 14px; }
+table.b { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 6px 0 14px; font-size: 9.5pt; }
+table.b td { padding: 7px 12px; border-bottom: 1px solid var(--line); }
+table.b td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.b tr:last-child td { border-bottom: 0; background: var(--g900); color: #fff; font-weight: 650; }
+ul.dots { list-style: none; margin: 4px 0 12px; }
+ul.dots li { position: relative; padding-left: 16px; margin-bottom: 5px; }
+ul.dots li::before { content: ''; position: absolute; left: 0; top: 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--g500); }
+</style></head><body>
+<section class="page">
+  
+<div class="brand">
+  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+  <div class="right">2026–27 Sponsorship</div>
+</div>
+  <h1>Sponsor a Frankenmuth<br>robotics team.</h1>
+  <p class="lead">We're Complete Robotics, a high school FIRST Robotics Competition team in our second season. As rookies, our robot made it to the Michigan State Championship. This year we're building to qualify for the FIRST Championship in Houston, and local sponsors are how we get there.</p>
+  <div class="stats">
+    <div class="stat"><b>States</b><span>Qualified for the FIRST in Michigan State Championship in our rookie year</span></div>
+    <div class="stat"><b>6th</b><span>Seed after qualifications at <span style="white-space:nowrap">FIM District Fenton, 9–3</span></span></div>
+    <div class="stat"><b>Captain</b><span>Led our own playoff alliance at Fenton</span></div>
+    <div class="stat"><b>22–21</b><span>Official match record across the 2026 season</span></div>
+  </div>
+  
+  <div class="two">
+    <div>
+      <h2>How we build</h2>
+      <p>Students design every part of the robot in CAD and write all of the code in Java. Mentors advise; students do the work.</p>
+      <p>Last season we had no machine shop, so every custom part was 3D-printed. The robot ran a swerve drivetrain, where each wheel steers on its own, driven by Kraken brushless motors.</p>
+      <h2 style="margin-top:14px">What's next</h2>
+      <p>A CNC router is the biggest upgrade we can make. It lets students cut aluminum and polycarbonate parts that are stronger and more precise than printed plastic. It also teaches the same design-to-machine process used in shops across Saginaw County.</p>
+    </div>
+    <div>
+      <h2>Where the money goes</h2>
+      <div class="budget">
+        <div><span>CNC router, enclosure and tooling</span><span>$6,500</span></div><div><span>Robot parts: motors, controllers, electronics</span><span>$8,000</span></div><div><span>Aluminum, polycarbonate and filament</span><span>$3,000</span></div><div><span>FIRST registration and district events</span><span>$6,000</span></div><div><span>State Championship</span><span>$1,500</span></div><div><span>Worlds fund: registration and travel deposit</span><span>$5,000</span></div><div><span>Safety gear, tools and outreach</span><span>$1,000</span></div>
+        <div><span>Season goal</span><span>$31,000</span></div>
+      </div>
+      <p class="small muted" style="margin-top:8px">If we qualify for Worlds, we'll run a separate drive to cover travel to Houston for the whole team.</p>
+    </div>
+  </div>
+</section>
+<section class="page">
+  
+<div class="brand">
+  <div class="mark"><div class="chip">10978</div><div><b>Complete Robotics</b><span>FIRST Robotics Competition · Frankenmuth, Michigan</span></div></div>
+  <div class="right">2026–27 Sponsorship</div>
+</div>
+  <h2 style="font-size:22pt">Sponsorship tiers</h2>
+  <p class="muted" style="max-width:6in">Every sponsor is recognized all season, from kickoff in January through our last event in the spring.</p>
+  <div class="tiers">
+    <div class="tier t1"><div class="name">Tier One</div><div class="pill">$1,500+</div><ul>
+      <li>Logo on the robot</li><li>Logo on team t-shirts</li><li>Logo on our website</li><li>Logo displayed in our pit at competitions</li><li>Two social media feature posts</li></ul></div>
+    <div class="tier t2"><div class="name">Tier Two</div><div class="pill">$500–$1,499</div><ul>
+      <li>Logo on team t-shirts</li><li>Logo on our website</li><li>Logo displayed in our pit at competitions</li><li>One social media feature post</li></ul></div>
+    <div class="tier"><div class="name">Tier Three</div><div class="pill">$100–$499</div><ul>
+      <li>Name on team t-shirts</li><li>Name on our website</li><li>Name listed in a social media post</li></ul></div>
+  </div>
+  <h2>Other ways to help</h2>
+  <div class="help">
+    <div><h3>Parts and materials</h3><p>Aluminum, filament, tools and machine time count toward a tier at full value.</p></div>
+    <div><h3>Mentors</h3><p>Engineers, machinists, programmers and business people. Many employers match volunteer hours with a cash grant.</p></div>
+    <div><h3>Computers</h3><p>Laptops or desktops that can run CAD, new or refurbished, for students designing the robot.</p></div>
+  </div>
+  <h2>Giving</h2>
+  <div class="give">
+    <div>
+      <p class="k">Checks payable to</p><p><b>Complete Robotics Foundation</b></p>
+      <p style="margin-top:8px">We're a 501(c)(3) nonprofit, so your gift is tax-deductible. Every sponsor gets a receipt and a season-end report showing what their money paid for.</p>
+    </div>
+    <div>
+      <p class="k">Contact</p><p><b>Sarah Rice</b></p><p>SarahRice@CompleteWorship.org</p>
+      <p class="k" style="margin-top:8px">Online</p><p>CompleteWorship.org/programs/stem</p><p>Facebook: Complete Robotics</p>
+    </div>
+  </div>
+</section></body></html>
