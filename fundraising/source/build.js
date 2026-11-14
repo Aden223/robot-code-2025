@@ -14,7 +14,8 @@ const CONTACT = {
   web: 'CompleteWorship.org/programs/stem',
   fb: 'Complete Robotics',
 };
-const PAYEE = 'Complete Robotics Foundation';
+// Legal payee for checks. Leave null until Sarah confirms (Complete Worship vs. Complete Robotics Foundation).
+const PAYEE = null;
 
 const css = `
 @page { size: Letter; margin: 0; }
@@ -107,7 +108,7 @@ const brand = (right) => `
   <div class="right">${right}</div>
 </div>`;
 const letterBrand = brand(`${CONTACT.email}<br>${CONTACT.web}`);
-const foot = `<div class="foot"><span>${PAYEE} is a 501(c)(3) nonprofit. Gifts are tax-deductible.</span><span>Facebook: ${CONTACT.fb}</span></div>`;
+const foot = `<div class="foot"><span>Complete Robotics is a 501(c)(3) nonprofit program. Gifts are tax-deductible.</span><span>Facebook: ${CONTACT.fb}</span></div>`;
 
 const BUDGET = [
   ['CNC router, enclosure and tooling', 6500],
@@ -130,12 +131,12 @@ function packet() {
   <h1>Sponsor Complete Robotics</h1>
   <div class="hero">
     <div>
-      <p class="lead">We're a high school FIRST Robotics Competition team from Frankenmuth, now in our second season. As rookies, our robot made it to the Michigan State Championship. This year we're building to qualify for the FIRST Championship in Houston, and local sponsors are how we get there.</p>
+      <p class="lead">We're a community FIRST Robotics Competition team in Frankenmuth for students in grades 7–12. In our rookie season we reached the finals at both of our district events and qualified for the Michigan State Championship. This year we're building to qualify for the FIRST Championship in Houston.</p>
       <div class="stats">
-        <div class="stat"><b>States</b><span>Qualified for the State Championship in our rookie year</span></div>
-        <div class="stat"><b>6th</b><span>Seed at our Fenton district event after going 9–3</span></div>
-        <div class="stat"><b>Captain</b><span>Led our own playoff alliance at Fenton</span></div>
-        <div class="stat"><b>22–21</b><span>Official match record across the 2026 season</span></div>
+        <div class="stat"><b>States</b><span>Qualified for and competed in the State Championship as rookies</span></div>
+        <div class="stat"><b>All-Star</b><span>Won the Rookie All-Star Award in our first season</span></div>
+        <div class="stat"><b>2 for 2</b><span>Reached the finals at both of our district events</span></div>
+        <div class="stat"><b>4 cities</b><span>Students from Frankenmuth, Birch Run, Saginaw and Bay City</span></div>
       </div>
     </div>
     <figure><img src="${img('robot_on_field.jpg')}"><figcaption>Team 10978 on the field, 2026 season</figcaption></figure>
@@ -161,8 +162,14 @@ function packet() {
 </section>
 <section class="page">
   ${brand('2026–27 Sponsorship')}
+  <h2>Who we are</h2>
+  <div class="help">
+    <div><h3>Open to everyone</h3><p>Grades 7–12 from public, private, virtual and home schools and the career center. No experience needed.</p></div>
+    <div><h3>More than building</h3><p>Students code, machine, wire, drive, design in CAD, 3D print, scout, and run media, marketing and animation.</p></div>
+    <div><h3>Real mentors</h3><p>Volunteers with expertise in coding, machining, electronics and wiring, robotics and engineering.</p></div>
+  </div>
+  <p class="small muted" style="margin:-8px 0 16px">The team is part of Complete Worship's youth programs, running since 2019, with STEM programs since 2024: K–8 Robotics, Builders and Math Clubs, and a K–12 STEM summer camp.</p>
   <h2>Sponsorship tiers</h2>
-  <p class="muted" style="max-width:6in">Every sponsor is recognized all season, from kickoff in January through our last event in the spring.</p>
   <div class="tiers">
     <div class="tier t1"><div class="name">Tier One</div><div class="pill">$1,500+</div><ul>
       <li>Logo on the robot</li><li>Logo on team t-shirts</li><li>Logo on our website</li><li>Logo displayed in our pit at competitions</li><li>Two social media feature posts</li></ul></div>
@@ -171,17 +178,12 @@ function packet() {
     <div class="tier"><div class="name">Tier Three</div><div class="pill">$100–$499</div><ul>
       <li>Name on team t-shirts</li><li>Name on our website</li><li>Name listed in a social media post</li></ul></div>
   </div>
-  <h2>Other ways to help</h2>
-  <div class="help">
-    <div><h3>Parts and materials</h3><p>Aluminum, filament, tools and machine time count toward a tier at full value.</p></div>
-    <div><h3>Mentors</h3><p>Engineers, machinists, programmers and business people. Many employers match volunteer hours with a cash grant.</p></div>
-    <div><h3>Computers</h3><p>Laptops or desktops that can run CAD, new or refurbished, for students designing the robot.</p></div>
-  </div>
   <h2>Giving</h2>
   <div class="give">
     <div>
-      <p class="k">Checks payable to</p><p><b>${PAYEE}</b></p>
+      <p class="k">${PAYEE ? 'Checks payable to' : 'Payment'}</p><p><b>${PAYEE || 'Contact Sarah for check and payment details'}</b></p>
       <p style="margin-top:8px">We're a 501(c)(3) nonprofit, so your gift is tax-deductible. Every sponsor gets a receipt and a season-end report showing what their money paid for.</p>
+      <p style="margin-top:8px">You can also give parts, aluminum, filament, machine time or CAD-capable computers, and they count toward a tier at full value. Or volunteer as a mentor: many employers match volunteer hours with a cash grant.</p>
     </div>
     <div>
       <p class="k">Contact</p><p><b>${CONTACT.name}</b></p><p>${CONTACT.email}</p>
@@ -192,14 +194,14 @@ function packet() {
 }
 
 // ---------------- sponsor letters ----------------
-const STORY = `Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. That robot still made it to the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is ${$(total)}. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.`;
-const INTRO = `We're Complete Robotics, a high school robotics team based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978.`;
+const STORY = `Last season was our first. Students designed the whole robot themselves, and since we had no machine shop, every custom part was 3D-printed. We still reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. This year we want to qualify for the FIRST Championship in Houston, which means building a stronger robot. Our season budget is ${$(total)}. The biggest single item is a CNC router, so students can machine aluminum parts instead of printing them.`;
+const INTRO = `We're Complete Robotics, a community robotics team for students in grades 7–12, based here in Frankenmuth. We compete in the FIRST Robotics Competition as Team 10978, with students from Frankenmuth, Birch Run, Saginaw and Bay City.`;
 const CLOSE = `We'd like to stop by with the robot and show you what we're building. ${CONTACT.name} coordinates our sponsors and can be reached at ${CONTACT.email}. Our tier sheet is enclosed.`;
 
 const L = (to, dear, custom, ask, opts = {}) => ({ to, dear, custom, ask, ...opts });
 const sponsors = [
   L(['Kremin Inc.', '235 Keystone Way', 'Frankenmuth, MI 48734'], 'Kremin team',
-    `CNC machining is exactly what our students want to learn next, and you do it a few miles from where we build. Kremin also sponsored Frankenmuth High School's robotics team in 2018, so you've seen what these programs do for students.`,
+    `CNC machining is exactly what our students want to learn next, and you do it a few miles from where we build. We have mentors who know machining; what we don't have is a machine. Kremin also sponsored Frankenmuth High School's robotics team in 2018, so you've seen what these programs do for students.`,
     `We're asking Kremin to sponsor us at Tier One ($1,500). If cash isn't possible this year, a few hours of machine time, a shop tour, or a machinist willing to teach our students CNC setup would help just as much.`),
   L(['Frankenmuth Bavarian Inn', 'Frankenmuth, MI 48734'], 'Bavarian Inn team',
     `The Bavarian Inn is one of Frankenmuth's biggest employers, and a lot of our families have worked there or celebrated there. We'd like to carry the Bavarian Inn name on our robot at every event this season.`,
@@ -220,7 +222,7 @@ const sponsors = [
     `Nexteer has supported FIRST teams around Saginaw for years, and steering is something our students know well. Our swerve drivetrain steers each wheel independently under software control. Your engineers would recognize the problem right away.`,
     `We're asking for a Tier One sponsorship of $2,500. We'd also be grateful for help finding one or two engineers who could mentor our students through build season.`),
   L(['John Deere', 'Attn: FIRST sponsorship contact'], 'John Deere team',
-    `John Deere helped fund our rookie season, and we want you to know what it turned into: our robot qualified for the Michigan State Championship, and we seeded 6th at our Fenton district event. Thank you.`,
+    `John Deere helped fund our rookie season, and we want you to know what it turned into: we reached the finals at both of our district events, won the Rookie All-Star Award and qualified for the Michigan State Championship. Thank you.`,
     `We'd be grateful if John Deere would renew its support for 2026–27 at Tier One. Your logo would stay on the robot and our shirts, and we'll send updates through the season.`,
     { intro: `We're Complete Robotics, FIRST Robotics Competition Team 10978 from Frankenmuth, Michigan.` }),
   L(['Polymaker', 'Attn: Sponsorship team'], 'Polymaker team',
@@ -259,7 +261,7 @@ const zehnders = `
   <div class="date">November 2026</div>
   <div class="to">Zehnder's of Frankenmuth<br>Attn: Donation Requests<br>730 S. Main Street<br>Frankenmuth, MI 48734</div>
   <p>To the Zehnder's donations committee,</p>
-  <p>${PAYEE}, a Frankenmuth 501(c)(3), would like to request a donation of four $50 dining certificates for the raffle at our spring robot showcase in March 2027.</p>
+  <p>Complete Robotics, a Frankenmuth youth robotics team and 501(c)(3) nonprofit program, would like to request a donation of four $50 dining certificates for the raffle at our spring robot showcase in March 2027.</p>
   <p>Complete Robotics is a high school FIRST Robotics Competition team. In our rookie season, students designed and built a robot that qualified for the Michigan State Championship. Raffle proceeds go toward a CNC router so students can machine aluminum parts as we work toward the FIRST Championship.</p>
   <p>This is our only request to Zehnder's this year. We'd recognize Zehnder's on the event signs and in our social media posts.</p>
   <p>Thank you for everything you do for Frankenmuth groups.</p>
@@ -269,7 +271,7 @@ const zehnders = `
 </section>`;
 
 // ---------------- grant letters ----------------
-const WHO = `Complete Robotics (FIRST Robotics Competition Team 10978) is a community-based high school team run by ${PAYEE}, a 501(c)(3) in Frankenmuth. In our 2026 rookie season, students designed the entire robot themselves. With no machine shop, they 3D-printed every custom part, and the robot still qualified for the FIRST in Michigan State Championship.`;
+const WHO = `Complete Robotics (FIRST Robotics Competition Team 10978) is a community team for students in grades 7–12, part of Complete Worship's STEM programs in Frankenmuth. Our students come from public, private, virtual and home schools and the career center, in Frankenmuth, Birch Run, Saginaw and Bay City. In our 2026 rookie season they designed the entire robot themselves and 3D-printed every custom part. We reached the finals at both district events, won the Rookie All-Star Award and qualified for the FIRST in Michigan State Championship.`;
 function grantLetter(g) {
   return `
 <section class="page letter">
@@ -305,7 +307,7 @@ const grants = [
     closing: `We'd be glad to present to your board with students and the robot, and to recognize the Foundation on the robot and our team shirts.`, enc: 'FCU grant application form' },
   { to: ['The Herbert H. and Grace A. Dow Foundation', 'Midland, MI 48640'], dear: 'Trustees',
     body: [
-      `${PAYEE}, a Michigan 501(c)(3) based in Frankenmuth, is requesting a $10,000 grant. It would give Great Lakes Bay Region high school students a CNC machining setup and the robot parts they need to compete for a spot at the FIRST Championship.`,
+      `Complete Robotics, a nonprofit youth robotics team based in Frankenmuth, is requesting a $10,000 grant. It would give Great Lakes Bay Region high school students a CNC machining setup and the robot parts they need to compete for a spot at the FIRST Championship.`,
       WHO,
       `The region's chemical, semiconductor and manufacturing employers need people who can design, machine and program. Because we're a community team open to students from any school, we can't receive Michigan's school-based 99h robotics grant, so we rely on private support. The grant would fund:`,
     ],
@@ -318,7 +320,7 @@ const cncSummary = `
   <h2 style="font-size:20pt">CNC workshop project</h2>
   <p class="muted">Attach to applications that ask for a project description or budget: Gene Haas Foundation, Hemlock Semiconductor CARE, Saginaw Community Foundation, Consumers Energy.</p>
   <h3 style="margin-top:14px">The need</h3>
-  <p>In our 2026 rookie season, students designed a complete competition robot but had no way to machine metal. Every custom part was 3D-printed. Printed parts take longer to make, break more easily on impact, and limit what students can design. The robot still qualified for the FIRST in Michigan State Championship. A CNC router is the biggest upgrade between us and a FIRST Championship robot.</p>
+  <p>In our 2026 rookie season, students designed a complete competition robot but had no way to machine metal. Every custom part was 3D-printed. Printed parts take longer to make, break more easily on impact, and limit what students can design. The robot still reached the finals at both district events and qualified for the State Championship. Our mentors include people with machining experience; what we lack is the machine. A CNC router is the biggest upgrade between us and a FIRST Championship robot.</p>
   <h3>The project</h3>
   <ul class="dots">
     <li>Buy and set up a benchtop CNC router (Omio X8 class, the most common router on FRC teams) with a stand, enclosure and dust collection.</li>
